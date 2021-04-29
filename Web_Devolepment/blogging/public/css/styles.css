@@ -1,0 +1,219 @@
+body{
+    background: linear-gradient(to bottom left, rgb(3, 37, 37) 50%, rgb(70, 68, 45) 50%);
+    color: white;
+}
+
+.navbar{
+    padding: 10px 40px;
+}
+.navbar-brand{
+    font-size: 30px;
+}
+.contant{
+    background-color: black;
+    padding: 30px 30px;
+    border-radius: 5px;
+    color: white;
+}
+.nav-link{
+    font-size: 18px;
+    margin: 0px 20px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 79vh;
+   
+}
+.coposecont button{
+    margin: 10px 0px;
+}
+.readMe{
+    text-decoration: none;
+}
+.readMe:hover{
+ text-decoration: none;
+}
+
+h4{
+    color: rgb(21, 107, 93);
+}
+
+
+
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-signin .checkbox {
+    font-weight: 400;
+}
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.deletePost{
+  background-color: #0d5849;
+  color: white;
+  width: 8%;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+.deletePost:hover{
+    background-color: white;
+    color: black;
+}
+
+.deleteReason{
+  margin-bottom: 10px;
+}
+
+.composePost{
+    position:fixed ;
+    background-color: rgb(24, 97, 97);
+    border-radius: 50%;
+    bottom: 8vh;
+    right: 5vw;
+    color: white;
+    font-size: 70px;
+    text-decoration: none;
+    font-weight:900;
+    padding: 0px 30px;
+    padding-bottom: 12px;
+    
+}
+.composePost:hover{
+  text-decoration: none;
+  color: black;
+}
+
+.optionCont{
+    margin-bottom: 20px;
+}
+.comicon{
+    width: 3%;
+    height: 3%;
+}
+.commentbody{
+    display: inline-block;
+    background-color:white ;
+    width: 50%;
+    padding: 1% 1%;
+    border-radius: 30px;
+}
+.searchbar{
+    margin-left: 10px;
+    border-right-style: none;
+    margin-right: 0px;
+    width: 40vw;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 5px;
+    padding-left: 20px;
+}
+.searchbtn{
+    border-left-style: none;
+    margin-left: -5px;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 5px;
+    padding-right: 20px;
+}
+
+.searchbar:focus,
+.searchbtn:focus {
+    outline: none;
+}
+.otpCont{
+    display: flex;
+    justify-content: center;
+    padding-top: 30vh;
+    flex-direction: column;
+ 
+}
+.otpCont form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.otpCont form button{
+    margin-top: 10px;
+    border-radius: 3px;
+    width: 150px;
+}
+.otpCont form input{
+    border-style: none;
+    border-bottom: 1px solid black;
+    padding: 5px 10px;
+}
+.otpresendbtn{
+    width: 150px;
+}
+#otpresendform{
+ width: 100%;
+ text-align: right;
+}
+.aboutcont{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.aboutcontiner{
+    width: 20vw;
+}
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #1abc9c;
+    
+}
+
+.footer p {
+    margin-top: 25px;
+	font-size: 12px;
+    color: #fff;
+    padding: 20px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .container{
+        min-height: 91vh;
+    }
+    .form-signin {
+        max-width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+    .form-signin {
+        max-width: 100%;
+    }
+  }

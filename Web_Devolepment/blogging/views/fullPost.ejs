@@ -1,0 +1,26 @@
+<%-include("partials/header")-%>
+    
+    <h2 ><%=post.PostTitel%></h2>
+     <div class="contant">
+     <p ><%=post.PostCont%></p>
+     <div class="aboutcont">
+       <div class="aboutcontiner">
+         <span style="color:springgreen ;"><%=post.Fname%> <%=post.Lname%><br/><span style="font-size: 13px;color: yellowgreen;"><%=post.about%></span></span>
+       </div>
+     </div>
+    </div>
+
+    <h3>Comments</h3>
+     <form action="post/<%=post.PostTitel%>/rrt234<%=post.ID%>/Comment" method="POST">
+       <input type="text" name="Commentcont" placeholder="Comment">
+       <input type="email" name="mailID" placeholder="mail Id">
+       <button type="submit">add</button>
+     </form>
+    <%  rows.forEach(function(row){ %>
+     <div>
+      <img style="display: inline;" class="comicon" src="\img\person-male.png" alt=""><p style="display: inline;"><%=row.emailID.substr(0, row.emailID.indexOf('@')); %></p>
+    </div>
+     <p class="commentbody"  ><%=row.comments %> </p>
+      <%  })  %>
+
+<%-include("partials/footer")-%> 

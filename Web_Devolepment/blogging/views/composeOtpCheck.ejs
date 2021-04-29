@@ -1,0 +1,19 @@
+<%-include("partials/header")-%>
+
+<div class="otpCont">
+    
+<form action="/compose/otpconfrom" method="POST">
+    <h3>Verifecation</h3>
+    <p>A OTP has been sent to <span style="color: blue;"><%=userEmail%></span><br/>please enter the OTP below to verify your mail ID</p>
+    <div>
+    <input type="text" name="otp" placeholder="Enter  OTP">
+    </div>
+    <input id="submit" type="submit" value="Conform" name="Conform" class="btn btn-primary" disabled="disabled">
+</form>
+<form id="otpresendform" action="/compose" method="POST">
+    <button class="otpresendbtn">Resend OTP</button>
+</form>
+</div>
+<%-include("partials/footer")-%>
+
+

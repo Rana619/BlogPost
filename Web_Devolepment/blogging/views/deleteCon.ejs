@@ -1,0 +1,22 @@
+<%-include("partials/header")-%>
+
+
+<main class="form-signin">
+    <form action="/delete/<%=postTitel%>/rrt234<%=postID%>/comform" method="POST">
+      <div class="form-floating">
+        <input type="text" name="postTitel" value="<%=postTitel%>" class="form-control" id="floatingInput" placeholder="name@example.com" >
+        <label for="floatingInput">Titel</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" name="postPassword" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <textarea name="deleteReason" class="deleteReason form-control" placeholder="Reason"  rows="10"></textarea>
+      <input id="submit" class="w-100 btn btn-lg btn-primary" value="Conform" type="submit" disabled="disabled">
+    </form>
+  </main>
+
+
+<%-include("partials/footer")-%>
+
+

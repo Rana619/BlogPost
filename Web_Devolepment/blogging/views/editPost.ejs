@@ -1,0 +1,19 @@
+<%-include("partials/header")-%>
+
+
+<h1>Editing</h1>
+
+<form class="coposecont"  action="/posts/<%=postTitel%>/rrt234<%=postID%>/postinfo/edit" method="POST">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input name="postTitel" value="<%=postTitel%>" type="text" class="form-control" id="exampleInputEmail1" placeholder="Titel" >
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">password</label>
+        <input name="passtext" type="text" class="form-control" id="exampleInputEmail1" placeholder="Password" >
+    </div>
+
+        <input id="submit" type="submit" name="publish" value="Contenue" class="btn btn-primary" disabled="disabled">
+</form>
+
+<%-include("partials/footer")-%>

@@ -1,0 +1,17 @@
+<%-include("partials/header")-%>
+    <h1>Home</h1>
+   
+    <a class="composePost" href="/compose">+</a>
+
+    <p class="contant"><%=para1%></p>
+     
+    <%  posts.forEach(function(post){ %>
+        <h4><%=post.PostTitel%></h4>
+        <p>✍️<%=post.Fname%> <%=post.Lname%></p>
+     <p class="contant"><%=post.PostCont.substr(0,100)%> <a class="readMe" href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>">Read more</a> </p>
+    <div class="optionCont"> <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/delete">Delete</a>
+     <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/editpostinfo">Edit</a>
+    </div>  
+      <%  })  %>
+      
+<%-include("partials/footer")-%>

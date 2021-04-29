@@ -1,0 +1,18 @@
+<%-include("partials/header")-%>
+
+
+<h1>Editing</h1>
+
+<form class="coposecont"  action="/posts/edit/<%=rows.PostTitel%>/rrt234<%=rows.ID%>/complete" method="POST">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <input name="postTitel" value="<%=rows.PostTitel%>" type="text" class="form-control" id="exampleInputEmail1" placeholder="Titel" disabled >
+    </div>
+    <label for="exampleInputEmail1" class="form-label">Post</label>
+    <div class="form-floating">
+        <textarea name="postCont"  class="form-control" placeholder="Post" id="floatingTextarea2" style="height: 150px"><%=rows.PostCont%></textarea>
+    </div>
+        <button type="submit" name="publish" class="btn btn-primary">Continue</button>
+</form>
+
+<%-include("partials/footer")-%>
