@@ -1,14 +1,14 @@
 <%-include("partials/header")-%>
-    
+<div class="container">
     <h2 ><%=post.PostTitel%></h2>
-     <div class="contant">
-     <p ><%=post.PostCont%></p>
-     <div class="aboutcont">
+    <div class="contant">
+       <p ><%=post.PostCont%></p>
+    <div class="aboutcont">
        <div class="aboutcontiner">
          <span style="color:springgreen ;"><%=post.Fname%> <%=post.Lname%><br/><span style="font-size: 13px;color: yellowgreen;"><%=post.about%></span></span>
        </div>
-     </div>
     </div>
+</div>
 
     <h3>Comments</h3>
      <form action="post/<%=post.PostTitel%>/rrt234<%=post.ID%>/Comment" method="POST">

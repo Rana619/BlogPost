@@ -26,19 +26,35 @@ var otp6,insertfname,insertlname,inserttitel,insertmail,insertpostcont,insertpas
 
 app.get("/",function(req,res){
 
+  res.render("signIn-signUp");
+  
+});
+
+app.post("/login", (req,res)=>{
+    res.redirect("/home");
+})
+
+
+app.get("/home" , (req,res)=>{
+
   db.getAllPersons() 
-     .then((posts)=>{
-        res.render('home',{
-          para1: homeStartingContent,
-          posts:posts})
-     })
-     .catch((err)=>{
-         res.send(err)
-     })
+  .then((posts)=>{
+     res.render('home',{
+       para1: homeStartingContent,
+       posts:posts})
+  })
+  .catch((err)=>{
+      res.send(err)
+  })
+
 });
 
 
+
+
+
 app.post("/posts/get",function(req,res){
+
 
   var  postTitel=encodeURIComponent('hello');
   console.log(req.body.searchTitel)
@@ -46,6 +62,11 @@ app.post("/posts/get",function(req,res){
      res.redirect(requrl);
   
 });
+app.get("/userProfile", (req,res)=>{
+    res.render("userProfile");
+});
+
+
 
 app.get("/posts/get/:urlTitel",(req,res)=>{
  
@@ -53,11 +74,20 @@ app.get("/posts/get/:urlTitel",(req,res)=>{
   console.log(requestedTitel)
   db.getAllPostsbyTitel(requestedTitel) 
      .then((posts)=>{
+
+      console.log(posts);
+      if(posts.length === 0)
+      {
+           res.render('getNothing',{
+             searchItem : requestedTitel
+           })
+      }else{
         res.render('searchPage',{
-          para1: homeStartingContent,
           posts:posts,
           searchTitel:requestedTitel
         })
+
+      }
      })
      .catch((err)=>{
          res.send(err)
@@ -87,7 +117,7 @@ app.get("/contact",function(req,res){
 
 app.get("/compose",function(req,res){
 
-   res.render("compose");
+   res.render("compose-ver-1");
 
 });
 
@@ -103,49 +133,132 @@ app.post("/compose",function(req,res){
   insertpassword=req.body.passtext;
   inserttitel=req.body.postTitel;
  
-  
 
-  otp6=Math.floor(Math.random() * 1000000) + 100000;
+  const thankMail=`<div style="background-color:teal;padding: 5%;font-family:Verdana, Geneva, Tahoma, sans-serif;">
+  <h2 style="font-family:Arial, Helvetica, sans-serif; margin-bottom: 8vh;color: white;">✍🏽CodeWall</h2>
+  <h4 style="color: white;">Hi `+insertfname+`</h4>
+  <p style="color: white;">Welcome to CodeWall ,we're happy for your contribution in our website. Go through our other posts and share your exprience in comment section & also incress our knowlage</p>
+  <h3 style="text-align: center;font-size: 50px;">🙏🏼</h3>
+  <h2 style="color: white;">Thank you `+insertfname+`...</h2>
+  </div>`
+
+
+  db.findSinglePostforcheck(insertfname,insertlname,insertmail,insertpassword)
+  .then((rowno)=>{
+       if(rowno==0)
+         {
+
+
+          otp6=Math.floor(Math.random() * 1000000) + 100000;
 
     
-  let mailBody =`<div style="background-color:teal;padding: 5%;font-family:Verdana, Geneva, Tahoma, sans-serif;">
-  <h2 style="font-family:Arial, Helvetica, sans-serif; margin-bottom: 8vh;">✍🏽CodeWall</h2>
-  <h1 style="font-size: 100px; text-align: center;">👇🏽</h1>
-  <h4 style="color: wheat;">Hi `+ insertfname+`</h4>
-  <p style="color: wheat;">Here is the your mail verification code for CodeWall:</p>
-       <h1 style="text-align: center;color:palegreen;">`+otp6+`</h1>
-  <p style="color: wheat;">All you have to do is copy the confirmation code and paste it to your form to complete verification process</p>
-  <h2 style="text-align: right;color: white;">Thank you `+ insertfname+`...</h2>
-  </div>`
-   
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user:'ranadebnath619@gmail.com',
-      pass: "Rana@1702"
+          let mailBody =`<div style="background-color:teal;padding: 5%;font-family:Verdana, Geneva, Tahoma, sans-serif;">
+          <h2 style="font-family:Arial, Helvetica, sans-serif; margin-bottom: 8vh;">✍🏽CodeWall</h2>
+          <h1 style="font-size: 100px; text-align: center;">👇🏽</h1>
+          <h4 style="color: wheat;">Hi `+ insertfname+`</h4>
+          <p style="color: wheat;">Here is the your mail verification code for CodeWall:</p>
+               <h1 style="text-align: center;color:palegreen;">`+otp6+`</h1>
+          <p style="color: wheat;">All you have to do is copy the confirmation code and paste it to your form to complete verification process</p>
+          <h2 style="text-align: right;color: white;">Thank you `+ insertfname+` ...</h2>
+          </div>`
+           
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user:'ranadebnath619@gmail.com',
+              pass: "Rana@1702"
+        
+            }
+          });
+          
+          var mailOptions = {
+            from: 'ranadebnath619@gmail.com',
+            to: insertmail,
+            subject: 'Mail Verification',
+            html: mailBody
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+              console.log(" mail sending failed");
+            } else {
+              console.log('Email sent: ' + info.response);
+              console.log("successful");
+              res.render("composeOtpCheck",{
+                userEmail: insertmail
+               });
+            }
+          });
 
-    }
-  });
+
+         }
+       else
+       {
+
+
+        db.addNewPerson(insertfname,insertlname,insertabout,insertmail,insertpassword,inserttitel,insertpostcont)
+        .then((post)=>{
+         mailsend.sendMail(insertmail,thankMail )  
+         res.redirect("/");
+          })
+         .catch((err)=>{
+           res.send(err)
+         })
+
+
+       }
+  })
+  .catch((err)=>{
+     console.log(err)
+  })
+
+
+
+
+
+
+  // otp6=Math.floor(Math.random() * 1000000) + 100000;
+
+    
+  // let mailBody =`<div style="background-color:teal;padding: 5%;font-family:Verdana, Geneva, Tahoma, sans-serif;">
+  // <h2 style="font-family:Arial, Helvetica, sans-serif; margin-bottom: 8vh;">✍🏽CodeWall</h2>
+  // <h1 style="font-size: 100px; text-align: center;">👇🏽</h1>
+  // <h4 style="color: wheat;">Hi `+ insertfname+`</h4>
+  // <p style="color: wheat;">Here is the your mail verification code for CodeWall:</p>
+  //      <h1 style="text-align: center;color:palegreen;">`+otp6+`</h1>
+  // <p style="color: wheat;">All you have to do is copy the confirmation code and paste it to your form to complete verification process</p>
+  // <h2 style="text-align: right;color: white;">Thank you `+ insertfname+` ...</h2>
+  // </div>`
+   
+  // var transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user:'ranadebnath619@gmail.com',
+  //     pass: "Rana@1702"
+
+  //   }
+  // });
   
-  var mailOptions = {
-    from: 'ranadebnath619@gmail.com',
-    to: insertmail,
-    subject: 'Mail Verification',
-    html: mailBody
-  };
+  // var mailOptions = {
+  //   from: 'ranadebnath619@gmail.com',
+  //   to: insertmail,
+  //   subject: 'Mail Verification',
+  //   html: mailBody
+  // };
   
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-      console.log(" mail sending failed");
-    } else {
-      console.log('Email sent: ' + info.response);
-      console.log("successful");
-      res.render("composeOtpCheck",{
-        userEmail: insertmail
-       });
-    }
-  });
+  // transporter.sendMail(mailOptions, function(error, info){
+  //   if (error) {
+  //     console.log(error);
+  //     console.log(" mail sending failed");
+  //   } else {
+  //     console.log('Email sent: ' + info.response);
+  //     console.log("successful");
+  //     res.render("composeOtpCheck",{
+  //       userEmail: insertmail
+  //      });
+  //   }
+  // });
 
 });
 

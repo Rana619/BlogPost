@@ -9,6 +9,10 @@ const connection = mysql.createConnection({
     database : 'mycswallpost'
 });
 
+
+
+
+
 function getAllPersons(){
     return new Promise(function(resolve,reject){
         connection.query(
@@ -38,7 +42,8 @@ function getAllPostsbyTitel(postTitel){
                     reject(err)
                 }
                 else{
-                    resolve(rows) 
+                    resolve(rows)    
+                       
                 }
             }
         )
@@ -60,7 +65,7 @@ function addNewPerson(Fname,Lname,about,Email,PostPassW,PostTitel,PostCont)
                     resolve() 
                 }
             }
-        )
+        ) 
     })
 }
 
@@ -106,6 +111,33 @@ function findSinglePost(requestedTitel,PostID)
 
     })
 }
+function findSinglePostforcheck(fname,lname,email,passw)
+{
+    return new Promise(function(resolve,reject){
+        let tak = connection.query(
+            `SELECT * FROM mycswallpost 
+            WHERE ( Fname = ? AND Lname = ? ) AND (Email = ? AND PostPassW = ?)`,
+           [fname,lname,email,passw],
+             (err,rows,cols) => {
+                 
+                if(err){
+                    reject(err)
+                }
+                else{
+                    console.log(rows.length)
+                    resolve(rows.length)
+                }
+
+
+     });
+
+    })
+}
+
+
+
+
+
 function findPostComments(PostID)
 {
     return new Promise(function(resolve,reject){
@@ -241,5 +273,6 @@ exports = module.exports={
     addNewComment,
     findPostComments,
     getAllPostsbyTitel,
-    deleteRelatedComments
+    deleteRelatedComments,
+    findSinglePostforcheck
 } 

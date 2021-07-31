@@ -1,19 +1,211 @@
-body{
-    background: linear-gradient(to bottom left, rgb(3, 37, 37) 50%, rgb(70, 68, 45) 50%);
-    color: white;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: cornflowerblue;
+}
 .navbar{
-    padding: 10px 40px;
+    padding: 10px 10px;
 }
 .navbar-brand{
     font-size: 30px;
 }
+.fa-user-circle{
+    font-size: 35px;
+    color: black;
+}
+.html:not(.no-js) [data-aos^=fade][data-aos^=fade]{
+    opacity: 1;
+}
+.dropdown{
+   position: relative;
+   bottom: 10px;
+}
+ul.dropdown-menu.show{
+    left: -40px;
+}
+.dropdown-menu li a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
 .contant{
-    background-color: black;
-    padding: 30px 30px;
-    border-radius: 5px;
+    background-color: rgb(70, 147, 153,0.3);
     color: white;
+    padding: 0px 30px;
+}
+.allPostCont{
+    position: relative;
+    bottom: 75px;
+}
+.wrapper {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    background: #24C6DC; 
+    background: -webkit-linear-gradient(to bottom, #514A9D, #24C6DC);  
+    background: linear-gradient(to bottom, #514A9D, #24C6DC); 
+  }  
+  .box div {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    border: 6px solid rgba(255,255,255,0.8);
+  }
+  
+  .box div:nth-child(1) {
+    bottom: 12%;
+    left: 42%;
+    animation: animatek 10s linear infinite;
+  }
+  
+  .box div:nth-child(2) {
+    bottom: 70%;
+    left: 50%;
+    animation: animatek 7s linear infinite;
+  }
+  .box div:nth-child(3) {
+    bottom: 17%;
+    left: 6%;
+    animation: animatek 9s linear infinite;
+  }
+  
+  .box div:nth-child(4) {
+    bottom: 20%;
+    left: 60%;
+    animation: animatek 10s linear infinite;
+  }
+  
+  .box div:nth-child(5) {
+    bottom: 67%;
+    left: 10%;
+    animation: animatek 6s linear infinite;
+  }
+  
+  .box div:nth-child(6) {
+    bottom: 80%;
+    left: 70%;
+    animation: animatek 12s linear infinite;
+  }
+  
+  .box div:nth-child(7) {
+    bottom: 60%;
+    left: 80%;
+    animation: animatek 15s linear infinite;
+  }
+  
+  .box div:nth-child(8) {
+    bottom: 32%;
+    left: 25%;
+    animation: animatek 16s linear infinite;
+  }
+  
+  .box div:nth-child(9) {
+    bottom: 90%;
+    left: 25%;
+    animation: animatek 9s linear infinite;
+  }
+  
+  .box div:nth-child(10) {
+    bottom: 20%;
+    left: 80%;
+    animation: animatek 5s linear infinite;
+  }
+  
+  @keyframes animatek {
+    0% {
+      transform: scale(0) translateY(-90px) rotate(360deg);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: scale(1.3) translateY(-90px) rotate(-180deg);
+      border-radius: 50%;
+      opacity: 0;
+    }
+  }
+
+.Cont{
+    padding: 50px 90px;
+}
+
+.ContPostMin{
+    padding: 20px 0px;
+    background-color: rgba(0, 0, 0,0.7);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border: 4px solid #2a3cad;
+}
+
+.container p{
+    white-space: pre;
+    color: white;
+}
+#shortCont{
+    white-space:pre-wrap;
+    height: 30vh;
+    overflow:hidden ;
+    background-color: rgba(194, 146, 238,0.6);
+    /* padding: 30px 30px;  */
+    position: relative;
+    left: -20px;
+    bottom: -25px;
+}
+#shortCont p{
+    padding: 20px 40px;
+}
+
+.identity{
+    display: flex;
+    height: 50px;
+    position: relative;
+    left: -20px;
+}
+.identityImg{
+    width: 50px;
+    background: white;
+    border-radius: 5px;
+}
+.identityImg img{
+    width: 50px;
+    height: 50px;
+}
+.identityInfo{
+    padding-left: 10px;
+}
+.identityInfo h4{
+    color: white;
+}
+.identityInfo p{
+    color: white;
+}
+#shortCont p{
+    color: white;
+} 
+.hideBottom{
+    width: 100%;
+    height: 30%;
+    box-shadow: 10px 20px 100px 80px rgb(41, 38, 38); 
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    
+}
+.hideBottom a{
+    position: absolute;
+    top: -45px;
+    text-align: center;
+    right: 50%;
+    text-decoration: none;
+    font-size: 20px;
 }
 .nav-link{
     font-size: 18px;
@@ -22,26 +214,182 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    min-height: 79vh;
-   
+    min-height: 79vh;  
 }
 .coposecont button{
     margin: 10px 0px;
 }
 .readMe{
     text-decoration: none;
+  
+}
+.setMore{
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 .readMe:hover{
  text-decoration: none;
 }
-
+.overView{
+    display: flex;
+    margin-top: 10px;
+    background-color:rgba(194, 146, 238,0.6) ;
+    position: relative;
+    left: -20px;
+    padding: 10px 10px;
+    bottom: -30px;
+    width: 200px;
+    color: white;
+}
+.overView i{
+    font-size: 30px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 5px;
+}
 h4{
     color: rgb(21, 107, 93);
 }
+.homePage{
+    width: 99vw;
+    height: 100vh;
+    display: flex;  
+}
+.homePart1{
+
+    width: 60%;
+    height: 90%;
+    background-image: url("back_1.jpg");
+    background-size: cover;
+}
+.composeBtn {
+    position: absolute;
+    padding: 20px 50px;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 200px;
+    overflow: hidden;
+    border-radius: 40px;
+    bottom: 13%;
+    right: 13%;
+    
+  }
+  
+  .composeBtn span {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    font-family: Arial;
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .composeBtn .liquid {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: #4973ff;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, .5);
+    transition: .5s;
+  }
+  
+  .composeBtn .liquid::after,
+  .composeBtn .liquid::before {
+    content: '';
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+    background: #000;
+  }
+  
+  .composeBtn .liquid::before {
+    
+    border-radius: 45%;
+    background: rgba(20, 20, 20, 1);
+    animation: animate 5s linear infinite;
+  }
+  
+  .composeBtn .liquid::after {
+    
+    border-radius: 40%;
+    background: rgba(20, 20, 20, .5);
+    animation: animate 10s linear infinite;
+  }
+  
+  .composeBtn:hover .liquid{
+    top: -120px;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translate(-50%, -75%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -75%) rotate(360deg);
+    }
+  }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.homePart2{
+    width: 40%;
+    height: 90%;
+    background-color:white ;
+}
+.homePartCont1{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 76, 109, 0.5);
+    padding-top: 25%;
+    color: white;
+}
+.homePartCont1 h1{
+    font-size: 60px;
+    font-family: 'Reggae One', cursive;
+}
+.homePartCont1 p{
+    margin-top: 30px;
+    font-size: 25px;
+    background-color: rgb(20, 94, 53);
+    width: 90%;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius:20px; 
+    padding-bottom: 5px;
+    font-family: 'Parisienne', cursive;
+}
+.homePartCont1 h5{
+    margin-top: 30px;
+    background-color: rgb(58, 172, 109);
+    width: 90%;
+    border-top-right-radius:20px ;
+    border-bottom-right-radius:20px; 
+    padding-bottom: 5px; 
+    font-family: 'Parisienne', cursive;
+}
+.blokIt{
+  display: none;
+}
 
 .form-signin {
     width: 100%;
@@ -165,6 +513,9 @@ h4{
     border-bottom: 1px solid black;
     padding: 5px 10px;
 }
+#floatingTextarea2{
+    white-space: pre-wrap;
+}
 .otpresendbtn{
     width: 150px;
 }
@@ -191,7 +542,20 @@ h4{
 	background-color: #1abc9c;
     
 }
-
+.getNothing{
+    height: 80vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+.fa-sad-tear{
+    margin-top:20px;
+    font-size: 400px;
+}
 .footer p {
     margin-top: 25px;
 	font-size: 12px;

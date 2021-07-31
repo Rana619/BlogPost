@@ -1,17 +1,108 @@
 <%-include("partials/header")-%>
-    <h1>Home</h1>
-   
-    <a class="composePost" href="/compose">+</a>
 
-    <p class="contant"><%=para1%></p>
-     
-    <%  posts.forEach(function(post){ %>
-        <h4><%=post.PostTitel%></h4>
-        <p>✍️<%=post.Fname%> <%=post.Lname%></p>
-     <p class="contant"><%=post.PostCont.substr(0,100)%> <a class="readMe" href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>">Read more</a> </p>
-    <div class="optionCont"> <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/delete">Delete</a>
-     <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/editpostinfo">Edit</a>
-    </div>  
-      <%  })  %>
+<div class="homePage" data-aos="zoom-in" >
+
+  <div class="homePart1">
+
+    <div class="homePartCont1" data-aos="zoom-in-down"><div class="blokIt"><h1 data-aos="zoom-in">Free Blogging<br/>Site</h1><p>Where to start your own blog for free</p><h5>Incress your knowladge & share your knowladge</h5></div>
+    <a class="composeBtn"  href="/compose">
+      <span>Compose</span>
+      <div class="liquid"></div>
+    </a>
+    </div>
+   
+  </div>
+  <div class="homePart2">
+
+    <div class="homePartCont1" data-aos="zoom-in-up"><h1 data-aos="zoom-in">Free Blogging<br/>Site</h1><p>Where to start your own blog for free</p><h5>Incress your knowladge & share your knowladge</h5></div>
+  
+  </div>
+</div> 
+
+<div class="allPostCont">
+    <div class="wrapper">
+
+      <div class="Cont">
+         
+        <%  posts.forEach(function(post){ %>
+        <div data-aos="fade-up" class="ContPostMin">
+          <div class="identity">
+            <div class="identityImg">
+              <img src="img/person-male.png" alt="<%=post.Fname%>">
+            </div>
+            <div class="identityInfo">
+              <h4><%=post.PostTitel%></h4>
+              <p>✍️<%=post.Fname%> <%=post.Lname%></p>
+            </div>
+          </div>
+
+            <div id="shortCont" >
+               <p><%=post.PostCont%></p>
+               <div class="hideBottom">
+                  <a href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>">Read more</a>
+               </div>
+            </div>
+            <!-- <div class="optionCont"> 
+              <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/delete">Delete</a>
+              <a class="deletePost readMe"  href="/posts/<%=post.PostTitel%>/rrt234<%=post.ID%>/editpostinfo">Edit</a>
+            </div>  -->
+            <div class="overView">
+              <div><i class="far fa-thumbs-up"></i> 10</div>
+              <div><i class="far fa-thumbs-down"></i> 2</div>
+              <div><i class="far fa-comment-dots"></i> 5</div>
+            </div>
+        </div> 
+          <%  })  %>
+        </div>
+      </div>
+
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
-<%-include("partials/footer")-%>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+          duration: 1200
+        });
+    </script>
+</div>
+</body>
+</html>
+
+<!-- <%-include("partials/footer")-%> -->
