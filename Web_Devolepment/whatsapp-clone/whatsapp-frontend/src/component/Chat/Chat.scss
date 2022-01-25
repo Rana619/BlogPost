@@ -1,0 +1,65 @@
+.Chat_section{
+    height: 73vh;
+    flex: 1;
+    background-image: url("Screenshot (553).png");
+    background-size: cover;
+    padding: 20px 20px;
+    overflow-y: scroll;
+    .chat{
+        line-height:22px;
+        padding: 0px 20px;
+        background-color: white;
+        border-radius: 11px;
+        margin-bottom: 20px;
+        clear: both;
+        min-width: 50px;
+        position: relative;
+        &:after{
+            content:" ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0;
+            bottom: auto;
+            border: 22px solid;
+        }
+        .msg{
+            color: black;
+            font-size: 15px;
+            margin: 5px 0 15px 0;
+        }
+        .time{
+            position: relative;
+            bottom: -7px;
+            right: -10px;
+            color: #00000073;
+            font-size: 11px;
+        }
+        &.you{
+            float: left;
+            margin-right: 10%;
+            font-size: 14px;
+            left: 15px;
+            &::after{
+                left: -12px;
+                right: auto;
+                border-color: #fff transparent transparent transparent;
+            }
+            .name{
+                font-weight: 500;
+                color: #36cd96;
+            }
+        }
+        &.me{
+            float: right;
+            margin-left: 10%;
+            background: #dbf8c6;
+            right: 15px;
+            &::after{
+                left: auto;
+                right: -12px;
+                border-color: #dbf8c6 transparent transparent transparent;
+            }
+        }
+    }
+}
